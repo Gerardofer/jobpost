@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>RESTFUL Express Routing</h1>
+            <p>We will be using a recently created app to track jobs as an example for the routes.</p>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Path</th>
+                    <th>HTTP Verb</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td>Index</td>
+                    <td>/jobs</td>
+                    <td>GET</td>
+                    <td>List of all jobs</td>
+                </tr>
+                <tr class="success">
+                    <td>New</td>
+                    <td>/jobs/new</td>
+                    <td>GET</td>
+                    <td>Shows new jobs form</td>
+                </tr>
+                <tr class="success">
+                    <td>Create</td>
+                    <td>/jobs</td>
+                    <td>POST</td>
+                    <td>Creates a new job, then redirects someplace</td>
+                </tr>
+                <tr class="warning">
+                    <td>Show</td>
+                    <td>/jobs/:id</td>
+                    <td>GET</td>
+                    <td>Shows information about one specific job</td>
+                </tr>
+                <tr class="info">
+                    <td>Edit</td>
+                    <td>/jobs/:id/edit</td>
+                    <td>GET</td>
+                    <td>Shows edit form from one job</td>
+                </tr>
+                <tr class="info">
+                    <td>Update</td>
+                    <td>/jobs/:id</td>
+                    <td>PUT</td>
+                    <td>Update a particular job, then redirects</td>
+                </tr>
+                <tr class="danger">
+                    <td>Delete</td>
+                    <td>/jobs/:id</td>
+                    <td>Destroy</td>
+                    <td>Delete a particular job, then redirects</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>

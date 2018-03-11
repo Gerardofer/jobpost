@@ -1,0 +1,27 @@
+{
+  "name": "jobpost",
+  "version": "1.0.0",
+  "description": "simple app to keep track of jobs aplied to",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gerardofer/jobpost.git"
+  },
+  "author": "Gerardo Fernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gerardofer/jobpost/issues"
+  },
+  "homepage": "https://github.com/Gerardofer/jobpost#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.0.9",
+    "nodemon": "^1.17.1"
+  }
+}
