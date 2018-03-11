@@ -32,22 +32,36 @@ var jobSchema = new mongoose.Schema({
 
 var Job = mongoose.model("Job", jobSchema);
 
-Job.create({
-    company: "Facebook",
-    position: "Front End Developer",
-    dateApplied: "03/01/2018",
-    contact: "Grace Cho"
-})
-
 //----------------------------------------  ROUTES  ----------------------------------------------------
 app.get("/", (req, res) => {
-    res.redirect("/jobs");
+    res.render("home");
+});
+//----  Get all jobs  ---------
+app.get("/jobs", (req, res) => {
+    Job.find({}, (err, allJobs) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("index", { jobs: allJobs });
+        }
+    });
 });
 
-app.get("/jobs", (req, res) => {
-    res.render("index")
-})
+//Create new job GET route
+app.get("/jobs/new", (req, res) => {
+    res.render("new");
+});
 
+//Create new job POST route
+app.post("/jobs", (req, res) => {
+    Job.create(req.body.jobs, (err, crateJob) => {
+        if (err) {
+            res.redirect("/jobs/new");
+        } else {
+            res.redirect("/jobs")
+        }
+    })
+})
 
 
 //----------------------------------------  END OF ROUTES  ---------------------------------------------

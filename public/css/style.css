@@ -1,3 +1,11 @@
-h1 {
-    background-color: brown;
+.form-group {
+    width: 65%;
+}
+
+.form-horizontal {
+    margin-left: 25%;
+}
+
+#new-job {
+    margin-left: 25%;
 }
