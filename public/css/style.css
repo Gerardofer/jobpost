@@ -6,6 +6,15 @@
     margin-left: 25%;
 }
 
+.panel {
+    width: 75%;
+    margin-left: 12.5%
+}
+
 #new-job {
     margin-left: 25%;
+}
+
+#view {
+    float: left;
 }
