@@ -1,8 +1,16 @@
 body {
-    background-image: url("/img/caspar-rubin-224229-unsplash.jpg");
+    background-image: url("/img/bookblock-363195-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
+h1 {
+    color: rgb(111, 161, 118);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.9), 1px 3px 3px rgba(0, 0, 0, 0.2);
+}
 
-/* h1 {
-    color: blue;
-} */
+.main-p {
+    font-size: 1.75rem;
+    /* text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.9), 1px 3px 3px rgba(0, 0, 0, 0.2); */
+}
