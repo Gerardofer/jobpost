@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
@@ -11,6 +12,7 @@ mongoose.connect("mongodb://localhost/job_tracker");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 //----------------------------------------  MONGO DATA BASE SET UP  ------------------------------------
 var jobSchema = new mongoose.Schema({
@@ -60,9 +62,58 @@ app.post("/jobs", (req, res) => {
         } else {
             res.redirect("/jobs")
         }
+    });
+});
+
+//Create a GET route to show specific job
+app.get("/jobs/:id", (req, res) => {
+    var id = req.params.id;
+    Job.findById(id, (err, jobFound) => {
+        if (err) {
+            res.redirect("/jobs");
+        } else {
+            res.render("show", { job: jobFound });
+        }
+    });
+});
+
+
+//Create a GET route to show the form to edit an existing specific job.
+app.get("/jobs/:id/edit", (req, res) => {
+    var id = req.params.id;
+    Job.findById(id, (err, jobToUpdate) => {
+        if (err) {
+            res.redirect("/jobs")
+        } else {
+            res.render("edit", { job: jobToUpdate });
+        }
+    });
+});
+
+//Create a PUT route to update the database, then redirects to the the post
+app.put("/jobs/:id", (req, res) => {
+    var id = req.params.id;
+    var jobs = req.body.jobs
+    Job.findByIdAndUpdate(id, jobs, (err, updatedJob) => {
+        if (err) {
+            res.redirect("/jobs");
+        } else {
+            res.redirect("/jobs/" + id)
+        }
+    });
+});
+
+//Create a DELETE route to destroy an entry
+app.delete("/jobs/:id", (req, res) => {
+    var id = req.params.id;
+    Job.findByIdAndRemove(id, (err) => {
+        if (err) {
+            res.redirect("/jobs");
+        } else {
+            res.redirect("/jobs")
+        }
     })
 })
-
 
 //----------------------------------------  END OF ROUTES  ---------------------------------------------
 app.listen(PORT, () => {

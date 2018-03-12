@@ -1,0 +1,41 @@
+<% include ./partials/header %>
+
+    <div class="well well-lg">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <%= job.company %>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul>
+                            <p>
+                                <strong>Position:</strong>
+                                <%= job.position %>
+                            </p>
+                            <p>
+                                <strong>Date of Application:</strong>
+                                <%= job.dateApplied.toDateString() %>
+                            </p>
+                            <p>
+                                <strong>Contact Person:</strong>
+                                <%= job.contact %>
+                            </p>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-lg btn-success active" href="/jobs/<%= job._id %>/edit">Edit</a>
+                    </div>
+                    <div class="col-md-2">
+                        <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-lg btn-danger active">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% include ./partials/footer %>

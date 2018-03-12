@@ -16,18 +16,10 @@
                                     <strong>Position:</strong>
                                     <%= job.position %>
                                 </p>
-                                <p>
-                                    <strong>Date of Application:</strong>
-                                    <%= job.dateApplied %>
-                                </p>
-                                <p>
-                                    <strong>Contact Person:</strong>
-                                    <%= job.contact %>
-                                </p>
                             </ul>
                         </div>
                         <div class="col-md-3">
-                            <button id="view" class="btn btn-warning btn-md">View</button>
+                            <a href="/jobs/<%= job._id %>"><button id="view" class="btn btn-warning btn-md">View</button></a>
                         </div>
                     </div>
                 </div>
